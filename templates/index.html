@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+  <title>Bootstrap Visualization Dashboard</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <!-- <link rel="stylesheet" href="/bootstrap.min.css"> -->
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/4.13.0/d3.min.js"></script>
+</head>
+
+<body>
+
+	<nav class="navbar navbar-inverse">
+		<div class="container-fluid">
+		  <div class="navbar-header">
+			<a class="navbar-brand" href="index.html"><span class="glyphicon glyphicon-leaf" aria-hidden="true"></span> Know Your Brew</a>
+		  </div>
+		  <ul class="nav navbar-nav navbar-right">
+			<li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#"><span class="glyphicon glyphicon-stats" aria-hidden="true"> Statistics <span class="caret"></span></a>
+			  <ul class="dropdown-menu">
+				<li><a href="/stats.html"><span class="glyphicon glyphicon-globe" aria-hidden="true"></span> Worldwide Statistics</a></li>
+				<li><a href="/ustrends.html"><span class="glyphicon glyphicon-bullhorn" aria-hidden="true"></span> US Trends</a></li>
+				</ul>
+			</li>
+			<li><a href="/findcoffee.html"> <img src = "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e8/Yelp.svg/1024px-Yelp.svg.png" height = "25px" width = "25px"> FindMyCoffee</a></li>
+				<li><a href="/tweets.html"> <img src = "http://www.konbini.com/en/files/2013/03/circle_bird.png" height = "20px" width = "20px"> TweetBoard</a></li>
+			<li><a href="/news.html"><span class="glyphicon glyphicon-list-alt" aria-hidden="true"> News</a></li>
+			<li><a href="/funfacts.html"><span class="glyphicon glyphicon-tasks" aria-hidden="true"> FunFacts</a></li>
+		  </ul>
+		</div>
+	  </nav> 
+	  
+<script src="{{ url_for('static', filename='js/logic.js') }}"></script>
+</body>
+
+</html>
