@@ -1,10 +1,15 @@
 import requests
 import json
-import rauth
+import scrape_coffee_news
 from twitter import *
-from flask import Flask, jsonify, render_template, request
+from flask import Flask, jsonify, render_template, request, redirect
+from flask_pymongo import PyMongo
+
+
 app = Flask(__name__)
 
+app.config["MONGO_URI"] = "mongodb://localhost:27017/coffee_news"
+mongo = PyMongo(app)
 
 @app.route("/")
 def index():
@@ -29,6 +34,13 @@ def stats():
 @app.route("/trends.html")
 def ustrends():
     return render_template('trends.html')
+
+@app.route("/news.html")
+def news():
+    scrapeCoffeeNews()
+    listings = mongo.db.listings.find_one()
+    return render_template("news.html", listings=listings)
+
 
 yelp_header = {'Content-Type': 'application/json','Authorization': 'Bearer FsbmD61belea3BdBgk7oUqIrd2Vva_RMWTR4YPlucKLIVDGAM7qgNbZahcnP9PR40d2-5mnSgkB9LRyXflZJRiDf1y5UGxHAtL7JjT44JwsLGpIYXaVkgJNuWWHLW3Yx'}
 twitter_header = {'Authorization': 'Bearer 1024005802112286720-tewTubcOAEiWSruFzKspp8oOrkKTeD'}
@@ -63,6 +75,11 @@ def getCoffeeTweets(searchKeyword):
     response = t.search.tweets(q=searchKeyword,lang="en",tweet_mode='extended')
     print(response)
     return jsonify(response)
+
+def scrapeCoffeeNews():
+    listings = mongo.db.listings
+    listings_data = scrape_coffee_news.scrape()
+    listings.update({}, listings_data, upsert=True)
 
 if __name__ == "__main__":
     app.run(debug=True)
