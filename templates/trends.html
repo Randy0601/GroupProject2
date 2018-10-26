@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Coffee Leaflet</title> -->
+  <title>Know Your Brew</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <!-- <link rel="stylesheet" href="/bootstrap.min.css"> -->
+	<link rel="stylesheet" href="{{url_for('static', filename='css/style.css')}}">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/4.13.0/d3.min.js"></script>
+	
+
+   <!-- Leaflet CSS & JS -->
+   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.3/dist/leaflet.css"
+   integrity="sha512-Rksm5RenBEKSKFjgI3a41vrjkw4EVPlJ3+OiI65vTjIdo9brlAacEuKOiQ5OFh7cOI1bkDwLqdLw3Zg0cRJAAQ=="
+   crossorigin=""/>
+
+   <script src="https://unpkg.com/leaflet@1.3.3/dist/leaflet.js"
+   integrity="sha512-tAGcCfR4Sc5ZP5ZoVz0quoZDYX5aCtEm/eu1KhSLj2c9eFrylXZknQYmxUssFaVJKvvc0dJQixhGjG2yXWiV9Q=="
+   crossorigin=""></script>
+  <!-- Our CSS -->
+  <!-- <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='css/statsstyle.css')}}"> -->
+</head>
+
+<body>
+    
+	<nav class="navbar navbar-inverse">
+		<div class="container-fluid">
+		  <div class="navbar-header">
+			<a class="navbar-brand" href="index.html"><span class="glyphicon glyphicon-leaf" aria-hidden="true"></span> Know Your Brew</a>
+		  </div>
+		  <ul class="nav navbar-nav navbar-right">
+			<!-- <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#"><span class="glyphicon glyphicon-stats" aria-hidden="true"> Statistics <span class="caret"></span></a>
+			  <ul class="dropdown-menu"></ul> -->
+				<li><a href="/stats.html"><span class="glyphicon glyphicon-globe" aria-hidden="true"></span> Worldwide Statistics</a></li>
+				<li><a href="/trends.html"><span class="glyphicon glyphicon-bullhorn" aria-hidden="true"></span> Coffee Trends</a></li>
+				<!-- </ul>
+			</li> -->
+			<li><a href="/findcoffee.html"> <img src = "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e8/Yelp.svg/1024px-Yelp.svg.png" height = "25px" width = "25px"> FindMyCoffee</a></li>
+				<li><a href="/tweets.html"> <img src = "http://www.konbini.com/en/files/2013/03/circle_bird.png" height = "20px" width = "20px"> TweetBoard</a></li>
+			<li><a href="/news.html"><span class="glyphicon glyphicon-list-alt" aria-hidden="true"> News</a></li>
+			<li><a href="/funfacts.html"><span class="glyphicon glyphicon-tasks" aria-hidden="true"> FunFacts</a></li>
+		  </ul>
+		</div>
+	  </nav> 
+    <div class="panel-group" id="accordion">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h4 class="panel-title">
+            <a data-toggle="collapse" data-parent="#accordion" href="#image1">
+            <h4>Most Caffeinated US Cities</h4></a>
+          </h4>
+        </div>
+        <div id="image1" class="panel-collapse collapse in">
+          <div class="panel-body">
+            <p style="text-align:center;"><img class = "stats_img"  src = "http://s3.amazonaws.com/ilovecoffee-img/uploads/caffeinated_cities/15cities_big.png"></p>
+          </div>
+        </div>
+      </div>
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h4 class="panel-title">
+            <a data-toggle="collapse" data-parent="#accordion" href="#image5">
+            <h4>Most Caffeinated Days</h4></a>
+          </h4>
+        </div>
+        <div id="image5" class="panel-collapse collapse">
+          <div class="panel-body">
+            <p style="text-align:center;"> <img class = "stats_img" width = 900px height =600px src = "https://yishay.files.wordpress.com/2013/03/coffee-consumption-graph.gif"></p>
+          </div>
+        </div>
+      </div>
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h4 class="panel-title">
+            <a data-toggle="collapse" data-parent="#accordion" href="#image3">
+              <h4>Most Popular Coffee Types</h4></a>
+          </h4>
+        </div>
+        <div id="image3" class="panel-collapse collapse">
+          <div class="panel-body">
+            <p style="text-align:center;"> <img class = "stats_img" width = 900px height =600px src = "http://s3.eu-central-1.amazonaws.com/centaur-wp/marketingweek/prod/content/uploads/2013/08/Coffee_trends_2.png"></p>
+          </div>
+        </div>
+      </div>
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h4 class="panel-title">
+            <a data-toggle="collapse" data-parent="#accordion" href="#image2">
+            <h4>Most Popular Coffee Flavors</h4></a>
+          </h4>
+        </div>
+        <div id="image2" class="panel-collapse collapse">
+          <div class="panel-body">
+            <p style="text-align:center;"> <img class = "stats_img" width = 900px height =600px src = "https://s14415.pcdn.co/wp-content/uploads/2016/04/Coffee-flavors-and-types.png"></p>
+          </div>
+        </div>
+      </div>
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h4 class="panel-title">
+            <a data-toggle="collapse" data-parent="#accordion" href="#image4">
+            <h4>Most Appealing reasons to go to Coffee Shops</h4></a>
+          </h4>
+        </div>
+        <div id="image4" class="panel-collapse collapse">
+          <div class="panel-body">
+            <p style="text-align:center;"> <img class = "stats_img" width = 900px height =600px src = "http://s3.eu-central-1.amazonaws.com/centaur-wp/marketingweek/prod/content/uploads/2013/08/Coffee_trends.png"></p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+</body>
+
+  </html>
