@@ -70,15 +70,16 @@ function getCoffeeTweets(searchKeyword){
         var mentions = "";
 
         if (data.statuses[i].entities.user_mentions.length > 0){
-          for (var j = 0; j < data.statuses[i].entities.user_mentions.length; j++){
+          // for (var j = 0; j < data.statuses[i].entities.user_mentions.length; j++){
+          // for (var j = 0; j < 2; j++){
             mentions += "@";
-            mentions += data.statuses[i].entities.user_mentions[j].screen_name
-            mentions += ","
-          }
+            mentions += data.statuses[i].entities.user_mentions[0].screen_name
+          //   mentions += ","
+          // }
        }
 
-        if (mentions != null)
-          mentions = mentions.substring(0,mentions.length-1);
+        // if (mentions != null)
+        //   mentions = mentions.substring(0,mentions.length-1);
 
         var row;
         var cell;

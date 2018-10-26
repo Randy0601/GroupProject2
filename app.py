@@ -26,6 +26,9 @@ def findCoffee():
 def stats():
     return render_template('stats.html')
 
+@app.route("/trends.html")
+def ustrends():
+    return render_template('trends.html')
 
 yelp_header = {'Content-Type': 'application/json','Authorization': 'Bearer FsbmD61belea3BdBgk7oUqIrd2Vva_RMWTR4YPlucKLIVDGAM7qgNbZahcnP9PR40d2-5mnSgkB9LRyXflZJRiDf1y5UGxHAtL7JjT44JwsLGpIYXaVkgJNuWWHLW3Yx'}
 twitter_header = {'Authorization': 'Bearer 1024005802112286720-tewTubcOAEiWSruFzKspp8oOrkKTeD'}
@@ -57,7 +60,7 @@ def getYelpReview(searchLocation,sortby):
 def getCoffeeTweets(searchKeyword):
     print("Inside getCoffeeTweets")
     # Search for the latest tweets about #pycon
-    response = t.search.tweets(q=searchKeyword,tweet_mode='extended')
+    response = t.search.tweets(q=searchKeyword,lang="en",tweet_mode='extended')
     print(response)
     return jsonify(response)
 

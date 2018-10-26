@@ -23,6 +23,16 @@ h1 {
     margin-bottom: 30px;
 }
 
+h3 {
+  font-style: oblique;
+  font-variant: petite-caps;
+  color: darkblue;
+}
+h4 {
+  font-style: oblique;
+  font-variant: petite-caps;
+	color: darkblue;
+}
 h5 {
 	color: darkblue;
 }
