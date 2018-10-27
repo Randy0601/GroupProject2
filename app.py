@@ -35,6 +35,10 @@ def stats():
 def ustrends():
     return render_template('trends.html')
 
+@app.route("/funfacts.html")
+def funfacts():
+    return render_template('funfacts.html')
+
 @app.route("/news.html")
 def news():
     scrapeCoffeeNews()
@@ -80,6 +84,8 @@ def scrapeCoffeeNews():
     listings = mongo.db.listings
     listings_data = scrape_coffee_news.scrape()
     listings.update({}, listings_data, upsert=True)
+
+
 
 if __name__ == "__main__":
     app.run(debug=True)
