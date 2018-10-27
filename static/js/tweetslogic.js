@@ -2,6 +2,9 @@
 // Create a map object
 
 // Selecting the "Search" button
+var alert_message_keyword = "Please enter keyword!"
+var alert_message_result = "No tweets found for this keyword!"
+
 var search_btn = d3.select("#search-btn");
 var tweetsTable = d3.select("tbody");
 
@@ -28,7 +31,7 @@ search_btn.on("click", function() {
     getCoffeeTweets(searchKeyword);
   }
   else
-    alert("Please enter keyword to search tweets for!");
+  $('#alert_placeholder').html('<div class="alert"><a class="close" data-dismiss="alert">×</a><span>'+alert_message_keyword+'</span></div>')
 
   //Calling the getYelpReview method to fetch Yelp Reviews
   
@@ -98,7 +101,7 @@ function getCoffeeTweets(searchKeyword){
     }
 
     else
-      alert("No tweets found for the selected keyword!");
+    $('#alert_placeholder').html('<div class="alert"><a class="close" data-dismiss="alert">×</a><span>'+alert_message_result+'</span></div>');
 
   });
 

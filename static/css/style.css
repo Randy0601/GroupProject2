@@ -49,6 +49,10 @@ h5 {
 	float: left;
 }
 
+#alert_placeholder{
+  color: red;
+
+}
 p {
 	font-family: serif;
 	font-size: 18px;
