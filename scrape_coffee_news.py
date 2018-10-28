@@ -3,7 +3,7 @@ from bs4 import BeautifulSoup
 import pandas as pd
 
 def init_browser():
-    executable_path = {"executable_path": "chromedriver"}
+    executable_path = {"executable_path": "chromedriver.exe"}
     return Browser("chrome", **executable_path, headless=False)
 
 def scrape():

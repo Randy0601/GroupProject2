@@ -24,6 +24,8 @@
 
 
 // Selecting the "Search" button
+var alert_message_location = "Please enter location!"
+var alert_message_result = "No result found for this location!"
 var search_btn = d3.select("#search-btn");
 
 // logic to handle onClick event on "Search" button
@@ -49,8 +51,10 @@ search_btn.on("click", function() {
     console.log(`Sort Value is ${sortby}`);
     getYelpReview(searchLocation, sortby);
   }
-  else
-    alert("Please enter location!");
+  else {
+    // alert("Please enter location!");
+    $('#alert_placeholder').html('<div class="alert"><a class="close" data-dismiss="alert">×</a><span>'+alert_message_location+'</span></div>')
+  }
 
   //Calling the getYelpReview method to fetch Yelp Reviews
   
@@ -101,7 +105,7 @@ function getYelpReview(searchLocation, sortby){
     }
 
     else
-      alert("No result found for the selected location!");
+    $('#alert_placeholder').html('<div class="alert"><a class="close" data-dismiss="alert">×</a><span>'+alert_message_result+'</span></div>')
 
   });
 

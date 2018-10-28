@@ -41,7 +41,7 @@ def funfacts():
 
 @app.route("/news.html")
 def news():
-    scrapeCoffeeNews()
+    # scrapeCoffeeNews()
     listings = mongo.db.listings.find_one()
     return render_template("news.html", listings=listings)
 
@@ -80,10 +80,12 @@ def getCoffeeTweets(searchKeyword):
     print(response)
     return jsonify(response)
 
+@app.route('/scrapeCoffeeNews')
 def scrapeCoffeeNews():
     listings = mongo.db.listings
     listings_data = scrape_coffee_news.scrape()
     listings.update({}, listings_data, upsert=True)
+    return news()
 
 
 
