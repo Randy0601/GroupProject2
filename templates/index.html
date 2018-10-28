@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en-us">
+<html lang="en">
 
 <head>
   <title>Know Your Brew</title>
@@ -14,8 +14,7 @@
 </head>
 
 <body>
-
-	<nav class="navbar navbar-inverse">
+<nav class="navbar navbar-inverse">
 		<div class="container-fluid">
 		  <div class="navbar-header">
 			<a class="navbar-brand" href="index.html"><span class="glyphicon glyphicon-leaf" aria-hidden="true"></span> Know Your Brew</a>
@@ -34,16 +33,27 @@
 		  </ul>
 		</div>
 	  </nav> 
-		
-		<!-- <div class="container">
+	
+  
+ <div class="container">
 
-			<div class="jumbotron text-center">
-				<h1>Scrape Coffee</h1>
-				<p><a class="btn btn-primary btn-lg" href="/scrape" role="button">Scrape New Data!</a></p>
-			</div>
-		</div>
-		 -->
-<!-- <script src="{{ url_for('static', filename='js/logic.js') }}"></script> -->
+   <div class="jumbotron text-center">
+     <a href="/scrape"><h1>Know Your Brew</h1></a>
+   </div>
+
+   <!-- Coffee News And Images -->
+   <div class="row" id="final_data">
+     <div class="col-md-12">
+       <h2 class="heading">{{final_data.title}}</h2>
+       <h4 class="heading">{{final_data.coffee_News}}</h4>
+       <!-- <img src= {{final_data.coffee_Image}} height="42" width="42"> -->
+       <center><img src="//image.shutterstock.com/image-photo/collecting-coffee-beans-450w-589256912.jpg" height="400" width="400" hspace="20" ></center><br><br>
+       <center><img src= "https://96krock.com/wp-content/uploads/sites/61/2018/10/shutterstock_326070713-e1538404905402-1-300x300.jpg" height="400" width="400" hspace="20" ></center>
+       <!-- </small> -->
+     </div>
+   </div>
+
+ </div>
 </body>
 
 </html>

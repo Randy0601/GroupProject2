@@ -9,7 +9,7 @@ from bs4 import BeautifulSoup
 def scrape():
 
     #Site Navigation
-    executable_path = {"executable_path": "/Users/cc/Desktop/Scrape/chromedriver.exe"}
+    executable_path = {"executable_path": "chromedriver.exe"}
     browser = Browser("chrome", **executable_path, headless=False)
     final_data = {}
 

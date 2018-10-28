@@ -1,5 +1,6 @@
 import requests
 import json
+import scrape_coffee
 import scrape_coffee_news
 from twitter import *
 from flask import Flask, jsonify, render_template, request, redirect
@@ -8,16 +9,20 @@ from flask_pymongo import PyMongo
 
 app = Flask(__name__)
 
-app.config["MONGO_URI"] = "mongodb://localhost:27017/coffee_news"
+app.config["MONGO_URI"] = "mongodb://localhost:27017/coffee"
 mongo = PyMongo(app)
 
 @app.route("/")
 def index():
-    return render_template('index.html')
+    final_data = mongo.db.final_data.find_one()
+    return render_template("index.html", final_data = final_data)
+    # return render_template('index.html')
 
 @app.route("/index.html")
 def indexpage():
-    return render_template('index.html')
+    final_data = mongo.db.final_data.find_one()
+    return render_template("index.html", final_data = final_data)
+    # return render_template('index.html')
 
 @app.route("/tweets.html")
 def tweets():
@@ -43,6 +48,9 @@ def funfacts():
 def news():
     # scrapeCoffeeNews()
     listings = mongo.db.listings.find_one()
+    if (listings is None):
+        scrapeCoffeeNews()
+        listings = mongo.db.listings.find_one()
     return render_template("news.html", listings=listings)
 
 
@@ -87,7 +95,12 @@ def scrapeCoffeeNews():
     listings.update({}, listings_data, upsert=True)
     return news()
 
-
+@app.route('/scrape')
+def scrape():
+    listings = mongo.db.final_data
+    listings_data = scrape_coffee.scrape()
+    listings.update({}, listings_data, upsert=True)
+    return indexpage()
 
 if __name__ == "__main__":
     app.run(debug=True)

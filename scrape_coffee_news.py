@@ -42,5 +42,7 @@ def scrape():
 
     listings["news_headlines"] = news_listings
 
+    browser.quit()
+
     return listings
 
