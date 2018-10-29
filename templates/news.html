@@ -8,7 +8,6 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <!-- <link rel="stylesheet" href="/bootstrap.min.css"> -->
 	<link rel="stylesheet" href="static/css/style.css">
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/4.13.0/d3.min.js"></script>
@@ -24,25 +23,33 @@
 
 <body>
 	
-	<nav class="navbar navbar-inverse">
-		<div class="container-fluid">
-		  <div class="navbar-header">
-			<a class="navbar-brand" href="index.html"><span class="glyphicon glyphicon-leaf" aria-hidden="true"></span> Know Your Brew</a>
-		  </div>
-		  <ul class="nav navbar-nav navbar-right">
-			<!-- <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#"><span class="glyphicon glyphicon-stats" aria-hidden="true"> Statistics <span class="caret"></span></a>
-			  <ul class="dropdown-menu"></ul> -->
-				<li><a href="/stats.html"><span class="glyphicon glyphicon-globe" aria-hidden="true"></span> Worldwide Statistics</a></li>
-				<li><a href="/trends.html"><span class="glyphicon glyphicon-bullhorn" aria-hidden="true"></span> Coffee Trends</a></li>
-				<!-- </ul>
-			</li> -->
-			<li><a href="/findcoffee.html"> <img src = "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e8/Yelp.svg/1024px-Yelp.svg.png" height = "25px" width = "25px"> FindMyCoffee</a></li>
-				<li><a href="/tweets.html"> <img src = "http://www.konbini.com/en/files/2013/03/circle_bird.png" height = "20px" width = "20px"> TweetBoard</a></li>
-			<li><a href="/news.html"><span class="glyphicon glyphicon-list-alt" aria-hidden="true"> News</a></li>
-			<li><a href="/funfacts.html"><span class="glyphicon glyphicon-tasks" aria-hidden="true"> FunFacts</a></li>
-		  </ul>
-		</div>
-		</nav> 
+		<nav class="navbar navbar-inverse">
+				<div class="container-fluid">
+				  <div class="navbar-header">
+				  <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+					  <span class="sr-only">Toggle navigation</span>
+					  <span class="icon-bar"></span>
+					  <span class="icon-bar"></span>
+					  <span class="icon-bar"></span>
+					</button>
+					<a class="navbar-brand" href="index.html"><span class="glyphicon glyphicon-leaf" aria-hidden="true"></span> Know Your Brew</a>
+			  </div>
+			  <div id="navbar" class="navbar-collapse collapse">
+				  <ul class="nav navbar-nav navbar-right">
+					<!-- <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#"><span class="glyphicon glyphicon-stats" aria-hidden="true"> Statistics <span class="caret"></span></a>
+					  <ul class="dropdown-menu"></ul> -->
+						<li><a href="/stats.html"><span class="glyphicon glyphicon-globe" aria-hidden="true"></span> Worldwide Statistics</a></li>
+						<li><a href="/trends.html"><span class="glyphicon glyphicon-bullhorn" aria-hidden="true"></span> Coffee Trends</a></li>
+						<!-- </ul>
+					</li> -->
+					<li><a href="/findcoffee.html"> <img src = "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e8/Yelp.svg/1024px-Yelp.svg.png" height = "25px" width = "25px"> FindMyCoffee</a></li>
+						<li><a href="/tweets.html"> <img src = "http://www.konbini.com/en/files/2013/03/circle_bird.png" height = "20px" width = "20px"> TweetBoard</a></li>
+					<li><a href="/news.html"><span class="glyphicon glyphicon-list-alt" aria-hidden="true"> News</a></li>
+					<li><a href="/funfacts.html"><span class="glyphicon glyphicon-tasks" aria-hidden="true"> FunFacts</a></li>
+			  </ul>
+			</div>
+				</div>
+			  </nav>
 		<div class = "container">
 			<div class="row" id="mars-listings">
 				<div class="col-md-12">

@@ -6,7 +6,6 @@ from twitter import *
 from flask import Flask, jsonify, render_template, request, redirect
 from flask_pymongo import PyMongo
 
-
 app = Flask(__name__)
 
 app.config["MONGO_URI"] = "mongodb://localhost:27017/coffee"
@@ -15,14 +14,18 @@ mongo = PyMongo(app)
 @app.route("/")
 def index():
     final_data = mongo.db.final_data.find_one()
+    if (final_data is None):
+        scrape()
+        final_data = mongo.db.final_data.find_one()
     return render_template("index.html", final_data = final_data)
-    # return render_template('index.html')
 
 @app.route("/index.html")
 def indexpage():
     final_data = mongo.db.final_data.find_one()
+    if (final_data is None):
+        scrape()
+        final_data = mongo.db.final_data.find_one()
     return render_template("index.html", final_data = final_data)
-    # return render_template('index.html')
 
 @app.route("/tweets.html")
 def tweets():
@@ -46,7 +49,6 @@ def funfacts():
 
 @app.route("/news.html")
 def news():
-    # scrapeCoffeeNews()
     listings = mongo.db.listings.find_one()
     if (listings is None):
         scrapeCoffeeNews()

@@ -6,6 +6,15 @@ body,
   padding: 0;
   margin: 0;
 }
+/* #bg-image{
+  position: relative;
+  height: 250;
+  background-attachment: fixed;
+  background: url("https://www.worldcoffeepress.com/wp-content/uploads/coffee-world.jpg");
+  background: url("https://thumbs.dreamstime.com/b/coffee-beans-closeup-plain-background-copy-space-34664187.jpg"); 
+  opacity : 0.5;
+
+} */
 
 .legend {
   padding: 10px;
