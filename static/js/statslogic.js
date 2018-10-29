@@ -471,6 +471,7 @@
         "radSize":10
       },
       {
+        "rank":3,
         "country":"Colombia",
         "coordinates":  [ 4.570868,-74.297333 ],
         "production":14000,
@@ -510,6 +511,7 @@
         "radSize":6
       },
       {
+        "rank":8,
         "country":"Uganda",
         "coordinates":  [ 1.373333,32.290275 ],
         "production":5100,
