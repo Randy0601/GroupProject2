@@ -4,7 +4,7 @@ import pandas as pd
 
 def init_browser():
     executable_path = {"executable_path": "chromedriver.exe"}
-    return Browser("chrome", **executable_path, headless=False)
+    return Browser("chrome", **executable_path, headless=True)
 
 def scrape():
     browser = init_browser()

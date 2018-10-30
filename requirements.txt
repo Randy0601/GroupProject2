@@ -11,7 +11,7 @@ python-dateutil==2.7.3
 pytz==2018.5
 six==1.11.0
 SQLAlchemy==1.2.10
-requests==2.19.1
+requests==2.20.0
 bs4==0.0.1
 flask_pymongo==2.1.0
 jsonschema==2.6.0
