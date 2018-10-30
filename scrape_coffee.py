@@ -10,7 +10,7 @@ def scrape():
 
     #Site Navigation
     executable_path = {"executable_path": "chromedriver.exe"}
-    browser = Browser("chrome", **executable_path, headless=False)
+    browser = Browser("chrome", **executable_path, headless=True)
     final_data = {}
 
 ## Coffee News
